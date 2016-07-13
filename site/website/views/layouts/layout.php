@@ -15,13 +15,6 @@ $documentKey = ($this->document->getId() === 1) ? 'home' : $this->document->getK
             </div>
             <div class="site-header__contact">
                <div class="site-header__contact-details">
-                  <div class="site-header__telephone">
-                     <i class="site-header__contact-telephone-icon"></i>
-                     <div class="site-header__telephone-number">
-                        <?= $this->config->telephone; ?><br />
-                        <span>Mon-Fri 8.30am-5pm</span>
-                     </div>
-                  </div>
                   <div class="site-header__email">
                      <i class="site-header__contact-email-icon"></i>
                      <a href="mailto:<?= $this->config->infoemail; ?>"><?= $this->config->infoemail; ?></a>
