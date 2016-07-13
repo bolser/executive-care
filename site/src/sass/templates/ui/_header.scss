@@ -44,28 +44,16 @@
          margin-top: 32px;
       }
 
-      &-telephone, &-email {
+      &-email {
          display: inline-block;
       }
 
-      &-telephone {
-         @include media($tablet-lrg-breakpoint) {
-            padding-right: 34px;
-         }
-      }
-
-      &-telephone-icon, &-email-icon {
+      &-email-icon {
          background-image: url('../images/buttons/icons/phone-email-icon.png');
          display: inline-block;
          vertical-align: top;
          content: '';
          margin-right: 10px;
-      }
-
-      &-telephone-icon {
-         width: 22px;
-         height: 21px;
-         background-position: 0px center;
       }
 
       &-email-icon {
@@ -81,31 +69,6 @@
             display: inline;
          }
       }
-
-      &-telephone {
-         @include media($tablet-lrg-breakpoint) {
-            display: inline-block;
-            line-height: 12px;
-
-            span.opening-times{
-               font-size: 10px;
-            }
-         }
-      }
-   }
-
-   &__telephone {
-      display: inline-block;
-
-      &-number {
-         display: inline-block;
-         vertical-align: top;
-         line-height: 13px;
-
-         span {
-            font-size: 11px;
-         }
-      }
    }
 
    &__email {
@@ -117,7 +80,7 @@
    
    @media(max-width:$tablet-breakpoint) {
       
-      &__telephone, &__email, .contact-h {
+      &__email, .contact-h {
          display:none;
       }
    }
