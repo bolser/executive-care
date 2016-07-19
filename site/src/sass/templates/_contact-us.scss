@@ -2,6 +2,7 @@
   @include outer-container;
 
   &__telephone-numbers {
+    font-size: 0.85em;
     &--name {
       display: inline-block;
       text-align: left;
