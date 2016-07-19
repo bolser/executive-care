@@ -13,21 +13,15 @@ $contactUsEnquiryHeader = $this->wysiwyg("contact-us-header");
                     <div class="contact-us__telephone-numbers">
                         <?php while ($this->block("contentblock")->loop()) { ?>
                             <div class="contact-us__telephone-numbers--name">
-                                <?= $this->input(
-                                    "homename",
-                                    [
-                                        'placeholder' => 'Home name',
-                                    ]
-                                ); ?>
+                                <?= $this->input("homename", [
+                                    'placeholder' => 'Home name',
+                                ]); ?>
                             </div>
                             <div class="contact-us__telephone-numbers--number">
-                                <?php if($this->editmode): ?>
-                                    <?= $this->input(
-                                        "homenumber",
-                                        [
-                                            'placeholder' => 'Telephone',
-                                        ]
-                                    ); ?>
+                                <?php if ($this->editmode): ?>
+                                    <?= $this->input("homenumber", [
+                                        'placeholder' => 'Telephone',
+                                    ]); ?>
 
                                 <?php else: ?>
                                     <a href="tel:<?= $this->input("homenumber")->text; ?>"><?= $this->input("homenumber")->text; ?></a>
