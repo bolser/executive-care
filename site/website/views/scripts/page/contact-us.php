@@ -1,34 +1,36 @@
 <?php
-    $contactUsAddress               = $this->wysiwyg("contact-us-address", ["width" => 200, "height" => 300]);
-    $contactUsEnquiryNumber         = $this->input("contact-us_enquiry-number");
-    $contactUsOpeningTimes          = $this->input("contact-us_opening_times");
-    $googleMapLocation              = $this->input("contact-us_map_location");
-    $contactUsLiveChatDetails       = $this->wysiwyg("live_chat_details_content");
-    $contactUsEnquiryHeader         = $this->wysiwyg("contact-us-header");
+$contactUsOpeningTimes = $this->input("contact-us_opening_times");
+$contactUsEnquiryHeader = $this->wysiwyg("contact-us-header");
 ?>
 <div class="container">
     <div class="container__inner">
         <div class="contact-us">
             <div class="sidebar contact">
-                    <div class="contact-us__address">
-                        <div class="contact-us__address__title">
-                            Executive Care Homes
-                        </div>
-                        <div class="contact-us__address__address">
-                            <?= $contactUsAddress ?>
-                        </div>
-                        <div class="contact-us__address__enquiries">
-                            <div class="contact-us__address__enquiries__left main">
-                                Enquiries:
+                <div class="contact-us__address">
+                    <div class="contact-us__address__title">
+                        Executive Care Homes
+                    </div>
+                    <div class="contact-us__telephone-numbers">
+                        <?php while ($this->block("contentblock")->loop()) { ?>
+                            <div class="contact-us__telephone-numbers--name">
+                                <?= $this->input("homename", [
+                                    'placeholder' => 'Home name',
+                                ]); ?>
                             </div>
-                            <div class="contact-us__address__enquiries__right">
-                                <?= $contactUsEnquiryNumber ?><br />
-                                <span id="opening_times"><?= $contactUsOpeningTimes ?></span>
+                            <div class="contact-us__telephone-numbers--number">
+                                <?php if ($this->editmode): ?>
+                                    <?= $this->input("homenumber", [
+                                        'placeholder' => 'Telephone',
+                                    ]); ?>
+
+                                <?php else: ?>
+                                    <a href="tel:<?= $this->input("homenumber")->text; ?>"><?= $this->input("homenumber")->text; ?></a>
+                                <?php endif; ?>
                             </div>
-                        </div>
-                        <br />
+                        <?php } ?>
                     </div>
                 </div>
+            </div>
             <div class="contact-us__left main">
                 <ul class="tabs">
                     <li><a id="enquiry_tab" href='#enquiry'>Make an enquiry</a></li>
@@ -56,10 +58,12 @@
                                 <?= $this->enquiryForm->enquiry_message ?>
                             </div>
                             <?= $this->enquiryForm->enquiry_opt_in ?>
-                            <label for="enquiry_opt_in">I would like to hear about the latest news and upcoming events</label>
-                            <br />
+                            <label for="enquiry_opt_in">I would like to hear about the latest news and upcoming
+                                events</label>
+                            <br/>
                             <?= $this->enquiryForm->enquiry_send_brochure ?>
-                            <label for="enquiry_send_brochure">I would like to receive a brochure through the post</label>
+                            <label for="enquiry_send_brochure">I would like to receive a brochure through the
+                                post</label>
                             <?= $this->enquiryForm->enquiry_submit ?>
                         </div>
                     </form>
@@ -89,7 +93,8 @@
                                 <?= $this->brochureForm->brochure_message ?>
                             </div>
                             <?= $this->brochureForm->brochure_opt_in ?>
-                            <label for="brochure_opt_in">I would like to hear about the latest news and upcoming events</label>
+                            <label for="brochure_opt_in">I would like to hear about the latest news and upcoming
+                                events</label>
                             <?= $this->brochureForm->brochure_submit ?>
                         </div>
                     </form>
