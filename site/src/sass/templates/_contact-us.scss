@@ -1,6 +1,25 @@
 .contact-us {
   @include outer-container;
 
+  &__telephone-numbers {
+    font-size: 0.85em;
+    &--name {
+      display: inline-block;
+      text-align: left;
+      width: 49%;
+    }
+    &--number {
+      display: inline-block;
+      text-align: right;
+      width: 49%;
+
+      & a {
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
+
   .sidebar.contact {
     float: right;
     margin-right: 0px;
@@ -37,35 +56,6 @@
       padding: 5px 0px 5px 10px;
       margin-left: -10px;
       width: 70%;
-    }
-
-    &__address {
-      line-height: 97%;
-      margin-bottom: 10px;
-    }
-
-    &__enquiries {
-      &__left {
-        float: left;
-        text-transform: uppercase;
-      }
-
-      &__right {
-        float: left;
-        margin-left: 5px;
-        height: 10px;
-
-        #opening_times {
-          font-size: 0.7em;
-          position: relative;
-          top: -10px;
-          display: inline-block;
-        }
-      }
-    }
-
-    &__telephone {
-      text-transform: uppercase;
     }
   }
 
